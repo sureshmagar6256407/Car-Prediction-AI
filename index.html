@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Data Cleaner & Value Type Predictor</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Suresh AI</h1>
+            <h1>🔍 3Data Cleaner & Value Type Predictor</h1>
+            <p>Detect data types and predict car prices with ML</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="type-detection">Type Detection</button>
+            <button class="tab-btn" data-tab="price-prediction">Price Prediction</button>
+            <button class="tab-btn" data-tab="batch-analysis">Batch Analysis</button>
+        </div>
+
+        <section id="type-detection" class="tab-content active">
+            <div class="card">
+                <h2>Data Type Detection</h2>
+                <p>Enter any value and the system will predict its data type</p>
+                
+                <div class="input-group">
+                    <input type="text" id="typeInput" placeholder="Enter a value (number, text, date, etc.)" class="input-field">
+                    <button onclick="detectType()" class="btn btn-primary">Detect Type</button>
+                </div>
+
+                <div id="typeResult" class="result hidden">
+                    <div class="result-box">
+                        <h3>Result:</h3>
+                        <p><strong>Detected Type:</strong> <span id="detectedType">-</span></p>
+                        <p><strong>Value:</strong> <span id="detectedValue">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="price-prediction" class="tab-content">
+            <div class="card">
+                <h2>Car Price Prediction</h2>
+                <p>Enter car features to predict the price</p>
+                
+                <form id="priceForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="engineSize">Engine Size (liters)</label>
+                        <input type="number" id="engineSize" placeholder="1.0 - 4.5" min="1" max="4.5" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horsepower">Horsepower</label>
+                        <input type="number" id="horsepower" placeholder="70 - 300" min="70" max="300" step="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age (years)</label>
+                        <input type="number" id="age" placeholder="1 - 15" min="1" max="15" step="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mileage">Mileage (km)</label>
+                        <input type="number" id="mileage" placeholder="10000 - 200000" min="10000" max="200000" step="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brandValue">Brand Value (1-5)</label>
+                        <input type="number" id="brandValue" placeholder="1 - 5" min="1" max="5" step="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-wide">Predict Price</button>
+                </form>
+
+                <div id="priceResult" class="result hidden">
+                    <div class="result-box success">
+                        <h3>Predicted Car Price:</h3>
+                        <p class="price-display">$<span id="predictedPrice">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="batch-analysis" class="tab-content">
+            <div class="card">
+                <h2>Batch Analysis</h2>
+                <p>Analyze multiple values at once and optionally predict price</p>
+                
+                <div class="input-group">
+                    <textarea id="batchInput" class="textarea-field" placeholder="Enter values separated by commas or newlines\nExample: 2.0, 150, 5, 50000, 4"></textarea>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button onclick="analyzeValues()" class="btn btn-primary">Analyze</button>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="checkbox" id="predictCheckbox">
+                            <span>Also predict price (first 5 values)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="batchResult" class="result hidden">
+                    <div class="result-box">
+                        <h3>Analysis Results:</h3>
+                        <div id="typesList"></div>
+                        <div id="priceInfo"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Thanks for Using This Prediction  AI   <h1>
+            Created by Suresh pun magar
+        </h1></p>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
