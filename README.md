@@ -167,5 +167,6 @@ Open source - use freely for learning and projects
 
 ---
 
-Built with ❤️ using Flask & Machine Learning | 3Data Cleaner v1.0
+Built with ❤️ using Flask & Machine Learning | 3Data Cleaner . Making by Suresh Pun magar
+
 # Car-Prediction-AI
